@@ -55,7 +55,7 @@ server {
           proxy_pass http://{{ $host }};
         }
         {{ range $container := $containers }}
-          {{ if $containerM.Env.PRODUCT }}
+          {{ if $container.Env.PRODUCT }}
           location ~ ^/{{ $host }}-assets {
             proxy_set_header Host $http_host;
             proxy_set_header X-Real-IP $remote_addr;
